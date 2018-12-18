@@ -106,7 +106,7 @@ function setup() {
 
 
     carSprite = loadImage("Pics/car.png");
-    wheelSprite = loadImage("Pics/wheel2.png");
+    wheelSprite = loadImage("Pics/wheel.png");
 
     world = new b2World(new Vec2(0, 10), true);
     car = new Car(150, 0);
