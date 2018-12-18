@@ -101,8 +101,8 @@ function setup() {
     window.canvas = createCanvas(1000, 500);
     canvas.parent("canvas");
     frameRate(30);
-    CBHeadSprite = loadImage("Pics/CBHead3.png");
-    headSprite = loadImage("Pics/headLarge.png");
+    
+    headSprite = loadImage("Pics/Sanj.png");
 
 
 
