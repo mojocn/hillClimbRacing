@@ -43,7 +43,6 @@ var listener = new Box2D.Dynamics.b2ContactListener;
 
 var carSprite;
 var headSprite;
-var cbHead = false;
 var wheelSprite;
 
 
@@ -101,7 +100,7 @@ function setup() {
     window.canvas = createCanvas(1000, 500);
     canvas.parent("canvas");
     frameRate(30);
-    headSprite = loadImage("Pics/head.png");
+    headSprite = loadImage("Pics/Tigger.png");
 
 
 
