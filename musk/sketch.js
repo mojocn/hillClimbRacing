@@ -43,7 +43,7 @@ var listener = new Box2D.Dynamics.b2ContactListener;
 
 var carSprite;
 var headSprite;
-var cbHead = false;
+
 var wheelSprite;
 
 
