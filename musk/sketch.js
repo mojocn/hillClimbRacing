@@ -43,7 +43,7 @@ var listener = new Box2D.Dynamics.b2ContactListener;
 
 var carSprite;
 var headSprite;
-
+var cbHead = false;
 var wheelSprite;
 
 
@@ -101,7 +101,7 @@ function setup() {
     window.canvas = createCanvas(1000, 500);
     canvas.parent("canvas");
     frameRate(30);
-    headSprite = loadImage("Pics/Must.png");
+    headSprite = loadImage("Pics/head.png");
 
 
 
@@ -160,10 +160,36 @@ function resetCar() {
 
 
 function mousePressed() {
-
-
+     if(mouseX>500){
+        rightDown = true;
+        car.motorOn(true);
+        break;
+     }else{
+        leftDown = true;
+        car.motorOn(false);
+        break;  
+     }
 }
 
+function mouseReleased() {
+    if(rightDown == true){
+        rightDown = false;
+        if (leftDown) {
+            car.motorOn(false);
+        } else {
+            car.motorOff();
+        }
+        break;
+    }else if(leftDown == true){
+        leftDown = false;
+        if (rightDown) {
+            car.motorOn(true);
+        } else {
+            car.motorOff();
+        }
+        break;
+    }
+}
 
 
 function keyPressed() {
