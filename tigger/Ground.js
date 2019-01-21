@@ -38,7 +38,7 @@ class Ground {
         noStroke();
         stroke(0, 205, 0);
         strokeWeight(this.grassThickness * 2);
-
+        image(loadImage("Pics/Tigger.png"), 150, 0);
         beginShape();
         push();
         translate(-panX, -panY);
