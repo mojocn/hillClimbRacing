@@ -215,10 +215,32 @@ function resetCar() {
 
 
 function mousePressed() {
-
-
+     if(mouseX>500){
+        rightDown = true;
+        car.motorOn(true);
+        }else{
+        leftDown = true;
+        car.motorOn(false);
+     }
 }
 
+function mouseReleased() {
+    if(rightDown == true){
+        rightDown = false;
+        if (leftDown) {
+            car.motorOn(false);
+        } else {
+            car.motorOff();
+        }
+    }else if(leftDown == true){
+        leftDown = false;
+        if (rightDown) {
+            car.motorOn(true);
+        } else {
+            car.motorOff();
+        }
+    }
+}
 
 
 function keyPressed() {
