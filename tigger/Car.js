@@ -137,7 +137,7 @@ class Car {
             resetCounter = 10;
         }
         //shit
-
+        image(loadImage("Pics/Tigger.png"), 150, 0);
 
     }
 
@@ -147,6 +147,7 @@ class Car {
 
 
     motorOn(forward) {
+                image(loadImage("Pics/Tigger.png"), 150, 0);
         var motorSpeed = 13;
         this.wheels[0].joint.EnableMotor(true);
         this.wheels[1].joint.EnableMotor(true);
@@ -184,7 +185,7 @@ class Car {
             case 1:
                 this.chassisBody.ApplyTorque(this.motorState * this.rotationTorque);
                 break;
-
+        image(loadImage("Pics/Tigger.png"), 150, 0);
 
         }
         this.motorState = 0;
