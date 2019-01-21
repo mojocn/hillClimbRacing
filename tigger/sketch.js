@@ -101,7 +101,7 @@ function setup() {
     window.canvas = createCanvas(1000, 500);
     canvas.parent("canvas");
     frameRate(30);
-    headSprite = loadImage("Pics/Must.png");
+    headSprite = loadImage("Pics/Tigger.png");
 
 
 
