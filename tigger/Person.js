@@ -42,6 +42,7 @@ class Head {
     }
 
     makeBody() {
+        image(loadImage("Pics/Tigger.png"), 150, 0);
         let bodyDef = new b2BodyDef();
         bodyDef.type = b2DynamicBody;
 
@@ -124,7 +125,7 @@ class Torso {
 
 
     show() {
-        image(loadImage("Pics/Tigger.png"), 150, 0);
+
         let x = this.body.GetPosition().x * SCALE;
         let y = this.body.GetPosition().y * SCALE;
         let angle = this.body.GetAngle();
