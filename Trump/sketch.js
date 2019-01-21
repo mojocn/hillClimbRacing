@@ -163,11 +163,9 @@ function mousePressed() {
      if(mouseX>500){
         rightDown = true;
         car.motorOn(true);
-        break;
-     }else{
+        }else{
         leftDown = true;
         car.motorOn(false);
-        break;  
      }
 }
 
@@ -179,7 +177,6 @@ function mouseReleased() {
         } else {
             car.motorOff();
         }
-        break;
     }else if(leftDown == true){
         leftDown = false;
         if (rightDown) {
@@ -187,7 +184,6 @@ function mouseReleased() {
         } else {
             car.motorOff();
         }
-        break;
     }
 }
 
