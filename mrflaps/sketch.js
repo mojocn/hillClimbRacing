@@ -101,13 +101,12 @@ function setup() {
     window.canvas = createCanvas(1000, 500);
     canvas.parent("canvas");
     frameRate(30);
-    CBHeadSprite = loadImage("Pics/CBHead3.png");
-    headSprite = loadImage("Pics/headLarge.png");
+    headSprite = loadImage("Pics/Must.png");
 
 
 
     carSprite = loadImage("Pics/car.png");
-    wheelSprite = loadImage("Pics/wheel2.png");
+    wheelSprite = loadImage("Pics/wheel.png");
 
     world = new b2World(new Vec2(0, 10), true);
     car = new Car(150, 0);
@@ -116,52 +115,6 @@ function setup() {
 
     world.SetContactListener(listener);
 
-
-    // var bodyDef2 = new b2BodyDef();
-    // bodyDef2.type = b2StaticBody;
-    // bodyDef2.position.x = 0; //canvas.width / 2 / SCALE;
-    // bodyDef2.position.y = 0; //(canvas.height - 20) / SCALE;
-    //
-    // var fixDef2 = new b2FixtureDef();
-    // fixDef2.friction = 0.9;
-    // fixDef2.restitution = 0.1;
-    // fixDef2.shape = new b2PolygonShape();
-    // // fixDef2.shape.SetAsBox(canvas.width / 2 / SCALE, 10 / SCALE);
-    // var vecs = [];
-    // //
-    // vecs.push(new Vec2(0, canvas.height - 70));
-    // vecs.push(new Vec2(canvas.width / 2, canvas.height - 65));
-    //
-    // vecs.push(new Vec2(canvas.width, canvas.height - 63));
-    //
-    // vecs.push(new Vec2(canvas.width, canvas.height));
-    //
-    // vecs.push(new Vec2(0, canvas.height));
-    // vecs.push(new Vec2(0, canvas.height - 70));
-
-    // for (var i = 0; i < canvas.width; i += 100) {
-    //   vecs.push(new Vec2(i, canvas.height - random(20, 100)));
-    // }
-    // vecs.push(new Vec2(0, canvas.height - floor(random(50, 100))));
-    // vecs.push(new Vec2(canvas.width / 2, canvas.height - floor(random(50, 100))));
-    //
-    // vecs.push(new Vec2(canvas.width, canvas.height - floor(random(50, 100))));
-    //
-    //
-    //
-    // vecs.push(new Vec2(canvas.width, canvas.height));
-    // vecs.push(new Vec2(0, canvas.height));
-    // print(vecs);
-    //
-    // for (var i of vecs) {
-    //   i.x /= SCALE;
-    //   i.y /= SCALE;
-    // }
-    //
-    // fixDef2.shape.SetAsEdge(vecs[0], vecs[3]);
-    //
-    // groundBody = world.CreateBody(bodyDef2);
-    // groundBody.CreateFixture(fixDef2);
 
 
 
@@ -176,16 +129,7 @@ function draw() {
         i.show();
     }
 
-    // push();
-    // x = groundBody.GetPosition().x * SCALE;
-    // y = groundBody.GetPosition().y * SCALE;
-    //
-    // translate(x, y);
-    // fill(0, 0, 0);
-    // noStroke();
-    // rectMode(CENTER);
-    // rect(0, 0, canvas.width, 20);
-    // pop();
+
     ground.show();
 
     car.show();
@@ -216,10 +160,32 @@ function resetCar() {
 
 
 function mousePressed() {
-
-
+     if(mouseX>500){
+        rightDown = true;
+        car.motorOn(true);
+        }else{
+        leftDown = true;
+        car.motorOn(false);
+     }
 }
 
+function mouseReleased() {
+    if(rightDown == true){
+        rightDown = false;
+        if (leftDown) {
+            car.motorOn(false);
+        } else {
+            car.motorOff();
+        }
+    }else if(leftDown == true){
+        leftDown = false;
+        if (rightDown) {
+            car.motorOn(true);
+        } else {
+            car.motorOff();
+        }
+    }
+}
 
 
 function keyPressed() {
