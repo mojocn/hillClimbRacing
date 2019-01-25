@@ -75,13 +75,10 @@ class Head {
         // fill(0, 255, 0);
         // noStroke();
         // ellipse(0, 0, this.radius * 2);
-        if (cbHead) {
-            image(CBHeadSprite, -this.radius - 7, -this.radius - 15, this.radius * 3, this.radius * 3);
-
-        } else {
+       
             image(headSprite, -this.radius - 8, -this.radius - 15, this.radius * 3, this.radius * 3);
 
-        }
+        
         pop();
 
 
@@ -134,7 +131,7 @@ class Torso {
         push();
         translate(x - panX, y - panY);
         rotate(angle);
-        fill(60, 80, 10);
+        fill(255, 255, 0);
         // noStroke();
         stroke(0);
         strokeWeight(1);

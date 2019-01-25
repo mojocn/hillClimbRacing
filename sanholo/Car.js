@@ -2,19 +2,14 @@ class Car {
     constructor(x, y) {
         this.wheels = [];
         this.startingPosition = createVector(x, y);
-
         this.chassisBody;
         this.chassisWidth = 125;
         this.chassisHeight = 40;
         this.wheelSize = 17;
-
         this.shapes = [];
         this.carDensity = 1;
         this.carRestitution = 0.01;
-
-        this.motorState = 0; //-1 is back and 1 is forward
-
-
+        this.motorState = 0;
         var bodyDef = new b2BodyDef();
         bodyDef.type = b2DynamicBody;
         bodyDef.position.x = x / SCALE;
@@ -44,23 +39,20 @@ class Car {
 
 
 
-        // fixDef.shape.SetAsBox(this.chassisWidth / 2 / SCALE, this.chassisHeight / 2 / SCALE);
         this.chassisBody = world.CreateBody(bodyDef);
 
         var filtData = new b2FilterData();
-        // filtData.groupIndex = -1;
         filtData.categoryBits = CHASSIS_CATEGORY;
         filtData.maskBits = CHASSIS_MASK;
 
 
         this.chassisBody.CreateFixture(fixDef).SetFilterData(filtData);
-        //
+        
         var fixDef2 = new b2FixtureDef();
         fixDef2.density = this.carDensity;;
         fixDef2.friction = 0.5;
         fixDef2.restitution = this.carRestitution;
         fixDef2.shape = new b2PolygonShape();
-        // fixDef2.shape.SetAsBox(10 / SCALE, 100 / SCALE);
 
         var vectors2 = [];
         vectors2.push(new Vec2(this.chassisWidth / 4, 0 - this.chassisHeight / 2));
@@ -80,7 +72,6 @@ class Car {
         fixDef3.friction = 0.1;
         fixDef3.restitution = 0.1;
         fixDef3.shape = new b2PolygonShape();
-        // fixDef2.shape.SetAsBox(10 / SCALE, 100 / SCALE);
 
         var vectors3 = [];
         vectors3.push(new Vec2(this.chassisWidth / 2, 0 - this.chassisHeight / 2 + 5));
@@ -98,7 +89,7 @@ class Car {
         this.wheels.push(new Wheel(x - this.chassisWidth / 2 + this.wheelSize * 1.2, y + this.chassisHeight / 2 + this.wheelSize / 4, this.wheelSize, this.chassisBody));
         this.wheels.push(new Wheel(x + this.chassisWidth / 2 - this.wheelSize * 1.2, y + this.chassisHeight / 2 + this.wheelSize / 4, this.wheelSize, this.chassisBody));
 
-        this.person = new Person(x, y, 15, 30); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<person
+        this.person = new Person(x, y, 15, 30); 
 
 
         var revJointDef = new b2RevoluteJointDef();
@@ -128,7 +119,6 @@ class Car {
             i.show();
         }
 
-        //show chassis
 
         let x = this.chassisBody.GetPosition().x * SCALE;
         let y = this.chassisBody.GetPosition().y * SCALE;
@@ -136,20 +126,7 @@ class Car {
         push();
         translate(x - panX, y - panY);
         rotate(angle);
-        // fill(0, 0, 0);
-        // noStroke();
-        // // rectMode(CENTER);
-        // // rect(0, 0, this.chassisWidth, this.chassisHeight);
-        // fill(0, 0, 0);
-        //
-        // for (var s of this.shapes) {
-        //   beginShape();
-        //   for (var v of s) {
-        //     vertex(v.x * SCALE, v.y * SCALE);
-        //   }
-        //   endShape(CLOSE);
-        //
-        // }
+       
 
         image(carSprite, -this.chassisWidth / 2 - 7, -this.chassisHeight - 20, this.chassisWidth + 23, this.chassisHeight * 2 + 10);
         pop();
@@ -159,30 +136,13 @@ class Car {
             reset = true;
             resetCounter = 10;
         }
-        // panY = y - canvas.height / 2;
+        //shit
 
 
     }
 
     update() {
-        // switch (this.motorState) {
-        //   case -1:
-        //     this.chassisBody.ApplyTorque(6);
-        //     print(-1);
-        //     break;
-        //   case 1:
-        //     this.chassisBody.ApplyTorque(-6);
-        //     print(1);
-        //     break;
-        //   case 0:
-        //     this.chassisBody.ApplyTorque(0);
-        //     print(1);
-        //     break;
-        // }
-
-
-
-    }
+          }
 
 
 
@@ -204,20 +164,16 @@ class Car {
             this.wheels[0].joint.SetMotorSpeed(motorSpeed * PI);
             this.wheels[1].joint.SetMotorSpeed(motorSpeed * PI);
 
-            // this.chassisBody.ApplyTorque(this.rotationTorque);
 
         }
         if (oldState + this.motorState == 0) {
             if (oldState == 1) {
                 this.applyTorque(this.motorState * -1);
             }
-            // this.chassisBody.ApplyTorque(this.motorState * (-1) * this.rotationTorque);
+           
         }
-        // this.chassisBody.ApplyTorque(this.motorState * (-1) * this.rotationTorque);
-        // print(this.wheels[0].joint);
         this.wheels[0].joint.SetMaxMotorTorque(700);
         this.wheels[1].joint.SetMaxMotorTorque(350);
-        // print(this.wheels[0].rimBody.GetAngle() - this.chassisBody.GetAngle());
     }
 
     applyTorque(direction) {

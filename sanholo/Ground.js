@@ -36,7 +36,7 @@ class Ground {
     show() {
         fill(82, 30, 0);
         noStroke();
-        stroke(0, 100, 0);
+        stroke(0, 205, 0);
         strokeWeight(this.grassThickness * 2);
 
         beginShape();
@@ -76,22 +76,6 @@ class Ground {
         return tempBody;
         // bodies.push(tempBody);
     }
-    // makeBody() {
-    //   var bodyDef = new b2BodyDef();
-    //   bodyDef.type = b2StaticBody;
-    //   bodyDef.position.x = 0; //canvas.width / 2 / SCALE;
-    //   bodyDef.position.y = 0; //(canvas.height - 20) / SCALE;
-    //
-    //   var fixDef = new b2FixtureDef();
-    //   fixDef.friction = 0.9;
-    //   fixDef.restitution = 0.1;
-    //   fixDef.shape = new b2PolygonShape();
-    //
-    //   fixDef.shape.SetAsArray(this.vectors, this.vectors.length);
-    //
-    //   this.body = world.CreateBody(bodyDef);
-    //   this.body.CreateFixture(fixDef);
-    //
-    // }
+
 
 }
