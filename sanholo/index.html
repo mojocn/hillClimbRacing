@@ -4,6 +4,18 @@
 <html>
 
 <head>
+    <!-- Hotjar Tracking Code for sanjit1.ithub.io -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1141904,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    
     <meta charset="UTF-8">
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" src="libraries/p5.dom.js"></script>
@@ -19,45 +31,32 @@
     <link rel="stylesheet" type="text/css" href="../../style.css" />
     <link rel="stylesheet" type="text/css" href="localStyle.css" />
 
-    <link rel="shortcut icon" type="image/png" href="../../img/favicon3.png" />
-    <title> TheBigCB.com </title>
+    <link rel="shortcut icon" type="image/png" href="../Sanjit.png" />
+    <title>Hill Climb</title>
     <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+    <style>.button {    background-color: #ADFF2F;     border: none;    color: white;    padding: 15px 32px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: 16px;    margin: 4px 2px;   border-radius: 4px;border: 2px solid #f44336;-webkit-transition-duration: 0.4s;    transition-duration: 0.4s;}.button:hover {    background-color: #f8f8ff;     color: white;    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)}</style>
+
 </head>
 
 <body>
-    <div id="container">
-        <div id="header">
-            <h1> TheBigCB.com </h1>
-            <h6> Because CodeBullet.com was taken</h6>
-        </div>
+   <centre>
+        <div id="container">
         <hr>
-        <div id="topnav">
-            <a href="../../index.html">Home</a>
-            <a href="../../projects.html">Projects</a>
-            <a href="../../merch.html">Merchandise</a>
-            <a href="../../faq.html">FAQ</a>
-            <a href="../../about.html">About</a>
-        </div>
-
-        <div id="main">
-            <h2> Hill Climb Racing </h2>
-            <div id="canvas">
-            </div>
-        </div>
-    </div>
+        <button class=button button><a href=/web/index.html>Home</a></button>
+        <button class=button button><a href=/hillClimbRacing/index.html>Different versions</a></button>
+        <button class=button button><a href=/hillClimbRacing/musk/hillClimbRacing.html>Refresh Terrain</a></button>
+        <centre><div id="main">
+            <h3.{  -webkit-touch-callout: none; /* iOS Safari */    -webkit-user-select: none; /* Safari */     -khtml-user-select: none; /* Konqueror HTML */       -moz-user-select: none; /* Firefox */        -ms-user-select: none; /* Internet Explorer/Edge */            user-select: none; 
+}> Hill Climb Racing adapted from thebigcb.com Subscribe to his channel</h3>
+            <h2> Use arrow keys to move </h2>
+            <h1> Or tap on the left side of the screen for Break and right for gas</h1>
+            <centre><div id="canvas">
+            </div></centre>
+        </div></centre>
+    </div></centre>
 
 
-    <script>
-        //center the canvas
-        var tempString = "" + ((window.innerWidth * 0.9 - 1026 - window.innerWidth * 0.9 * 0.08) / 2) + "px";
-        document.getElementById("main").style.marginLeft = tempString;
 
-
-        window.onresize = function(event) {
-            var tempString = "" + ((window.innerWidth * 0.9 - 1026 - window.innerWidth * 0.9 * 0.08) / 2) + "px";
-            document.getElementById("main").style.marginLeft = tempString;
-        };
-    </script>
 
 </body>
 
